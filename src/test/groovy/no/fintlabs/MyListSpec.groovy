@@ -39,6 +39,12 @@ class MyListSpec extends Specification{
         1 * validator.validate("Hello")
     }
 
+//    1 * subscriber.receive("hello")      // exactly one call
+//    0 * subscriber.receive("hello")      // zero calls
+//    (1..3) * subscriber.receive("hello") // between one and three calls (inclusive)
+//    (1.._) * subscriber.receive("hello") // at least one call
+//    (_..3) * subscriber.receive("hello") // at most three calls
+
     def "Test adding invalid value"() {
         given:
         MyListValidator validator = Stub()
@@ -66,6 +72,14 @@ class MyListSpec extends Specification{
         result
         myList.size() == 1
     }
+
+//    1 * subscriber.receive("hello")        // an argument that is equal to the String "hello"
+//    1 * subscriber.receive(!"hello")       // an argument that is unequal to the String "hello"
+//    1 * subscriber.receive()               // the empty argument list (would never match in our example)
+//    1 * subscriber.receive(_)              // any single argument (including null)
+//    1 * subscriber.receive(*_)             // any argument list (including the empty argument list)
+//    1 * subscriber.receive(!null)          // any non-null argument
+//    1 * subscriber.receive(_ as String)    // any non-null argument that is-a String
 
     def "Test example data"(){
         given:

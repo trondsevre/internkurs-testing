@@ -30,6 +30,7 @@ class MyUtilSpec extends Specification{
         myUtil.add(3) == 4
     }
 
+    //@Ignore
     def "adding two numbers"() {
         given:
         myUtil.set(a)
@@ -43,6 +44,4 @@ class MyUtilSpec extends Specification{
         5 | 4 | 9
         9 | 9 | 18
     }
-
-
 }
